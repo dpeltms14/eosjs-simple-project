@@ -11,12 +11,10 @@ const api = new Api({ rpc, signatureProvider, textDecoder: new TextDecoder(), te
 
 async function main() {
     try {
-        const result2 = await rpc.get_block(300000);
-        const account = result2.producer;
-        const result = await rpc.get_account(account);
-        console.log(result.created);        
+        const result = await rpc.get_account("voter_info");
+        console.log(result);
     } catch (error) {
-        console.log(error);        
+        console.log(error);
     }
 }
 main();
