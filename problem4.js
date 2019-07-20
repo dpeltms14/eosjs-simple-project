@@ -11,6 +11,7 @@ const api = new Api({ rpc, signatureProvider, textDecoder: new TextDecoder(), te
 
 async function main() {
     let arr = [];
+    let count = 0;
 
     try {
         const info = await rpc.get_info();
@@ -29,8 +30,12 @@ async function main() {
                 arr.push(nextBP);
             }
         }
-        for(let i=0; i<arr.length; i++)
-        console.log(arr[i]);
+        for(let i=0; i<arr.length; i++) {
+            console.log(arr[i]);
+            count++;
+        }
+        console.log( "현재 BP의 수 : ", count );       
+
     } catch (error) {
         console.error(error);
     }
